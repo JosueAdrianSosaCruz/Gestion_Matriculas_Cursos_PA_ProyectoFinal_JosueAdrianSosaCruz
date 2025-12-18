@@ -393,3 +393,26 @@ void Curso::guardarEstudiantesEnArchivo() {
 
     cout << "Estudiantes guardados correctamente en el archivo.\n";
 }
+void Curso::mostrarNotasEstudiantes() {
+    if (totalEstudiantes == 0) {
+        cout << "No hay estudiantes.\n";
+        return;
+    }
+
+    cout << "\n--- NOTAS DE LOS ESTUDIANTES ---\n";
+
+    for (int i = 0; i < totalEstudiantes; i++) {
+        cout << "\nEstudiante: " << estudiantes[i].getNombre() << endl;
+
+        for (int j = 0; j < 5; j++) {
+            if (estudiantes[i].notas[j] >= 0) {
+                cout << "Nota " << j + 1 << ": "
+                     << estudiantes[i].notas[j] << endl;
+            } else {
+                cout << "Nota " << j + 1 << ": (no registrada)\n";
+            }
+        }
+
+        cout << "Promedio: " << estudiantes[i].promedio() << endl;
+    }
+}

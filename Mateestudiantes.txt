@@ -1,0 +1,5 @@
+Curso: Mate
+Profesor: joseu
+
+--- LISTA DE ESTUDIANTES ---
+1. Josue - Promedio: 14.8

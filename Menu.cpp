@@ -70,7 +70,7 @@ void menuEstudiantesColor(){
 		cout<<"     |  | | || ||  | | || ||  | | || ||  | | || ||  | | || ||  | | || ||  | | || ||  | | || ||  | | || ||  | | || |"<<endl;
 		cout<<" ____|__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_||__|_|_||_|"<<endl;
 		cout<<"|______________________________________________________________________________________________________________________|"<<RESET<<endl;
-		cout<<BOLDYELLOW<<"   1. Matricular estudiante"<<RESET<<BOLDCYAN<<"\t\t||"<<RESET<<BOLDBLUE<<"  2. Mostrar estudiantes"<<RESET<<BOLDCYAN<<"\t\t||"<<RESET<<BOLDGREEN<<"   3. Eliminar estudiante"<<RESET<<endl;
+		cout<<BOLDYELLOW<<"   1. Matricular estudiante"<<RESET<<BOLDCYAN<<"\t\t||"<<RESET<<BOLDBLUE<<"  2. Mostrar notas estudiantes"<<RESET<<BOLDCYAN<<"\t||"<<RESET<<BOLDGREEN<<"   3. Eliminar estudiante"<<RESET<<endl;
 		cout<<BOLDYELLOW<<"                ________     "<<RESET<<BOLDCYAN<<"\t\t||\t"<<RESET<<BOLDBLUE<<"     ____      ____     "<<RESET<<BOLDCYAN<<"\t||\t"<<RESET<<BOLDGREEN<<"          ___  ___      "<<RESET<<endl;
 		cout<<BOLDYELLOW<<"           ____/       //____"<<RESET<<BOLDCYAN<<"\t\t||\t"<<RESET<<BOLDBLUE<<"    /    \\____/    \\  "<<RESET<<BOLDCYAN<<"\t\t||\t"<<RESET<<BOLDGREEN<<"          \\  \\/  /     "<<RESET<<endl;
 		cout<<BOLDYELLOW<<"          /   /       //   //"<<RESET<<BOLDCYAN<<"\t\t||\t"<<RESET<<BOLDBLUE<<"   |     /    \\     |  "<<RESET<<BOLDCYAN<<"\t\t||\t"<<RESET<<BOLDGREEN<<"           \\    /      "<<RESET<<endl;

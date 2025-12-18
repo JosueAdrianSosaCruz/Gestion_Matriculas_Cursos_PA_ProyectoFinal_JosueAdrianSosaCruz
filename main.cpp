@@ -102,7 +102,7 @@ void menuEstudiantes() {
             cursos[c].matricularEstudiante();
             break;
         case 2:
-            cursos[c].mostrarEstudiantes();
+            cursos[c].mostrarNotasEstudiantes();
             break;
         case 3:
             cursos[c].eliminarEstudiante();

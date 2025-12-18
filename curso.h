@@ -38,6 +38,7 @@ public:
 	float promedioEvaluacion(int indice);
 	void mostrarPromediosEvaluaciones();
 	void guardarEstudiantesEnArchivo();
+	void mostrarNotasEstudiantes();
 };
 
 #endif
