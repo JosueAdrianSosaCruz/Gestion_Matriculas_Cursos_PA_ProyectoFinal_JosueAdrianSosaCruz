@@ -1,7 +1,7 @@
 #ifndef ESTUDIANTE_H
 #define ESTUDIANTE_H
 
-#include "Persona.h"
+#include "persona.h"
 
 class Estudiante : public Persona {
 public:

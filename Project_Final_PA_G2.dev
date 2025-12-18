@@ -1,6 +1,6 @@
 [Project]
-filename=Proyecto_fi.dev
-name=Proyecto_fi
+filename=Project_Final_PA_G2.dev
+name=Project_Final
 Type=1
 Ver=2
 ObjFiles=
@@ -19,7 +19,7 @@ ObjectOutput=
 LogOutput=
 LogOutputEnabled=0
 OverrideOutput=0
-OverrideOutputName=
+OverrideOutputName=Project_Final_PA_G2.exe
 HostApplication=
 UseCustomMakefile=0
 CustomMakefile=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;8;0;0;0
-UnitCount=10
+UnitCount=6
 
 [VersionInfo]
 Major=1
@@ -39,19 +39,19 @@ Build=0
 LanguageID=1033
 CharsetID=1252
 CompanyName=
-FileVersion=
+FileVersion=1.0.0.0
 FileDescription=Developed using the Dev-C++ IDE
 InternalName=
 LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
 ProductName=
-ProductVersion=
+ProductVersion=1.0.0.0
 AutoIncBuildNr=0
 SyncProduct=1
 
 [Unit1]
-FileName=profesor.h
+FileName=main.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -61,7 +61,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit2]
-FileName=estudiante.h
+FileName=curso.cpp
 CompileCpp=1
 Folder=
 Compile=1
@@ -81,7 +81,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit4]
-FileName=curso.cpp
+FileName=estudiante.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -101,7 +101,8 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit6]
-FileName=Untitled1
+FileName=profesor.h
+CompileCpp=1
 Folder=
 Compile=1
 Link=1
@@ -110,7 +111,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit7]
-FileName=menu.h
+FileName=persona.h
 CompileCpp=1
 Folder=
 Compile=1
@@ -120,26 +121,7 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit8]
-FileName=Untitled3
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit9]
-FileName=main.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit10]
-FileName=menu.cpp
+FileName=profesor.h
 CompileCpp=1
 Folder=
 Compile=1

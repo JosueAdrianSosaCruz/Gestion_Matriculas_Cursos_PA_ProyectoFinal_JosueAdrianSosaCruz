@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Curso.h"
+#include "curso.h"
 #include "Menu.h"
 using namespace std;
 
@@ -32,6 +32,18 @@ void mostrarCursos() {
     }
 }
 
+void eliminarCursoDelSistema(Curso cursos[], int& totalCursos, int indice) {
+    cursos[indice].eliminarCurso();
+
+    for (int i = indice; i < totalCursos - 1; i++) {
+        cursos[i] = cursos[i + 1];
+    }
+
+    totalCursos--;
+
+    cout << "Curso eliminado correctamente.\n";
+}
+
 int seleccionarCurso() {
     mostrarCursos();
     int op;
@@ -40,10 +52,10 @@ int seleccionarCurso() {
     return op - 1;
 }
 
-// ===== SUBMENÚ CURSO =====
 void menuCurso() {
     int opcion;
     do {
+    	system("cls");
         cout << "\n--- MENÚ DE CURSO ---\n";
         cout << "1. Asignar profesor\n";
         cout << "2. Cambiar profesor\n";
@@ -52,8 +64,8 @@ void menuCurso() {
         cout << "5. Volver\n";
         cout << "Opción: ";
         cin >> opcion;
-
-        if (opcion == 4) break;
+		system("cls");
+        if (opcion == 5) break;
 
         int c = seleccionarCurso();
 
@@ -67,22 +79,24 @@ void menuCurso() {
 		case 3:
     		cursos[c].mostrarProfesor();
     		break;
-        case 4:
-            cursos[c] = Curso();
-            cout << "Curso eliminado completamente.\n";
-            break;
+    	case 4:
+    		eliminarCursoDelSistema(cursos, totalCursos, c);
+    		cout << "Curso eliminado correctamente.\n";
+   			break;
         default:
     		cout << "Opción inválida.\n";
     		break;
         }
-
+        if (opcion != 5) {
+            system("pause");
+        }
     } while (opcion != 5);
 }
 
-// ===== SUBMENÚ ESTUDIANTES =====
 void menuEstudiantes() {
     int opcion;
     do {
+    	system("cls");
         cout << "\n--- MENÚ DE ESTUDIANTES ---\n";
         cout << "1. Matricular estudiante\n";
         cout << "2. Eliminar estudiante\n";
@@ -90,7 +104,7 @@ void menuEstudiantes() {
         cout << "4. Volver\n";
         cout << "Opción: ";
         cin >> opcion;
-
+		system("cls");
         if (opcion == 4) break;
 
         int c = seleccionarCurso();
@@ -109,16 +123,19 @@ void menuEstudiantes() {
     		cout << "Opción inválida.\n";
     		break;
         }
+        if (opcion != 4) {
+            system("pause");
+        }
     } while (opcion != 4);
 }
 
-// ===== SUBMENÚ NOTAS =====
 void menuNotas() {
     int opcion;
     do {
+    	system("cls");
         cout << "\n--- MENÚ DE NOTAS ---\n";
         cout << "1. Ingresar notas\n";
-        cout << "2. Editar nota\n";
+        cout << "2. Ordenar por nombre\n";
         cout << "3. Ordenar por nota\n";
         cout << "4. Editar nota\n";
         cout << "5. Promediar curso\n";
@@ -127,8 +144,8 @@ void menuNotas() {
         cout << "8. Volver\n";
         cout << "Opción: ";
         cin >> opcion;
-
-        if (opcion == 6) break;
+		system("cls");
+        if (opcion == 8) break;
 
         int c = seleccionarCurso();
 
@@ -158,12 +175,15 @@ void menuNotas() {
     		cout << "Opción inválida.\n";
     		break;
         }
-
+        if (opcion != 8) {
+            system("pause");
+        }
     } while (opcion != 8);
 }
 void menuReportes() {
     int opcion;
     do {
+    	system("cls");
         cout << "\n--- MENÚ DE REPORTES ---\n";
         cout << "1. Estudiante con mayor nota\n";
         cout << "2. Estudiante con menor nota\n";
@@ -171,7 +191,7 @@ void menuReportes() {
         cout << "4. Volver\n";
         cout << "Opción: ";
         cin >> opcion;
-
+		system("cls");
         if (opcion == 4) break;
 
         int c = seleccionarCurso();
@@ -193,26 +213,20 @@ void menuReportes() {
     		cout << "Opción inválida.\n";
     		break;
         }
-
+        if (opcion != 4) {
+            system("pause");
+        }
     } while (opcion != 4);
 }
-// ===== MENÚ PRINCIPAL =====
+
 int main() {
     int opcion;
 
     do {
-    	menuPrincipalColores();
-        cout << "\n=== SISTEMA DE MATRÍCULA ===\n";
-        cout << "1. Crear curso\n";
-        cout << "2. Mostrar cursos\n";
-        cout << "3. Gestión de curso\n";
-        cout << "4. Gestión de estudiantes\n";
-        cout << "5. Gestión de notas\n";
-        cout << "6. Reportes del curso\n";
-        cout << "7. Salir";
-        cout << "Opción: ";
+		system("cls");
+		menuPrincipalColores();
         cin >> opcion;
-
+		system("cls");
         switch (opcion) {
         case 1:
             crearCurso();
@@ -236,7 +250,9 @@ int main() {
     		cout << "Opción inválida.\n";
     		break;
         }
-
+        if (opcion != 7) {
+            system("pause");
+        }
     } while (opcion != 7);
 
     return 0;

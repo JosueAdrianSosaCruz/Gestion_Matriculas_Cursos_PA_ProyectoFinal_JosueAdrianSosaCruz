@@ -1,5 +1,6 @@
-#include "Curso.h"
+#include "curso.h"
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
 Curso::Curso() {
@@ -8,18 +9,28 @@ Curso::Curso() {
     activo = false;
 }
 
-
 void Curso::asignarProfesor() {
-    if (!profesor.estaActivo()){
+    if (!activo) {
+        cout << "Primero debe crear el curso.\n";
+        return;
+    }
+
+    if (profesor.estaActivo()) {
         cout << "Este curso ya tiene profesor.\n";
         return;
     }
 
+    string nom;
     cout << "Nombre del profesor: ";
     cin.ignore();
-    string nom;
-	getline(cin, nom);
-	profesor.setNombre(nom);
+    getline(cin, nom);
+    profesor.setNombre(nom);
+
+    cout << "Especialidad: ";
+    getline(cin, profesor.especialidad);
+
+    cout << "Código del profesor: ";
+    cin >> profesor.codigo;
 
     cout << "Profesor asignado correctamente.\n";
 }
@@ -30,15 +41,19 @@ void Curso::cambiarProfesor() {
         return;
     }
 
-    cout << "Ingrese el nuevo nombre del profesor: ";
+    string nom;
+    cout << "Nuevo nombre del profesor: ";
     cin.ignore();
+    getline(cin, nom);
+    profesor.setNombre(nom);
 
-    string nuevoNombre;
-    getline(cin, nuevoNombre);
+    cout << "Nueva especialidad: ";
+    getline(cin, profesor.especialidad);
 
-    profesor.setNombre(nuevoNombre);
+    cout << "Nuevo código: ";
+    cin >> profesor.codigo;
 
-    cout << "Profesor cambiado correctamente.\n";
+    cout << "Profesor actualizado correctamente.\n";
 }
 
 void Curso::matricularEstudiante() {
@@ -63,22 +78,33 @@ void Curso::matricularEstudiante() {
 }
 
 void Curso::eliminarEstudiante() {
-    string nombreEstudiante;
-    cout << "Ingrese el nombre del estudiante a eliminar: ";
-    cin.ignore();
-    getline(cin, nombreEstudiante);
-
-    for (int i = 0; i < totalEstudiantes; i++) {
-        if (estudiantes[i].getNombre() == nombreEstudiante) {
-            for (int j = i; j < totalEstudiantes - 1; j++) {
-                estudiantes[j] = estudiantes[j + 1];
-            }
-            totalEstudiantes--;
-            cout << "Estudiante eliminado.\n";
-            return;
-        }
+    if (totalEstudiantes == 0) {
+        cout << "No hay estudiantes para eliminar.\n";
+        return;
     }
-    cout << "Estudiante no encontrado.\n";
+
+    cout << "\n--- LISTA DE ESTUDIANTES ---\n";
+    for (int i = 0; i < totalEstudiantes; i++) {
+        cout << i + 1 << ". " << estudiantes[i].getNombre() << endl;
+    }
+
+    int op;
+    cout << "Seleccione el número del estudiante a eliminar: ";
+    cin >> op;
+    op--;
+
+    if (op < 0 || op >= totalEstudiantes) {
+        cout << "Opción inválida.\n";
+        return;
+    }
+
+    for (int i = op; i < totalEstudiantes - 1; i++) {
+        estudiantes[i] = estudiantes[i + 1];
+    }
+
+    totalEstudiantes--;
+
+    cout << "Estudiante eliminado correctamente.\n";
 }
 
 void Curso::ingresarNotas() {

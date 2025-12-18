@@ -1,8 +1,8 @@
 #ifndef CURSO_H
 #define CURSO_H
 
-#include "Profesor.h"
-#include "Estudiante.h"
+#include "profesor.h"
+#include "estudiante.h"
 
 const int MAX_EST = 30;
 
