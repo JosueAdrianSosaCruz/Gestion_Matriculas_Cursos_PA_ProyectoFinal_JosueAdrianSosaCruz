@@ -362,10 +362,10 @@ void Curso::guardarEstudiantesEnArchivo() {
         return;
     }
 
-    ofstream archivo;
-    archivo.open(nombreCurso + "estudiantes.txt", ios::out);
+    string nombreArchivo = nombreCurso + "_estudiantes.txt";
+    ofstream archivo(nombreArchivo, ios::out);
 
-    if (!archivo) {
+    if (!archivo.is_open()) {
         cout << "Error al crear el archivo.\n";
         return;
     }
@@ -389,9 +389,8 @@ void Curso::guardarEstudiantesEnArchivo() {
     }
 
     archivo.close();
-    archivo.clear();
 
-    cout << "Estudiantes guardados correctamente en el archivo.\n";
+    cout << "Archivo \"" << nombreArchivo << "\" creado correctamente.\n";
 }
 void Curso::mostrarNotasEstudiantes() {
     if (totalEstudiantes == 0) {
