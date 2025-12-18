@@ -34,6 +34,10 @@ public:
 	void cambiarNombreCurso();
 	int contarAprobados();
 	int contarDesaprobados();
+	void mostrarProfesor();
+	void editarNota();
+	float promedioEvaluacion(int indice);
+	void mostrarPromediosEvaluaciones();
 };
 
 #endif

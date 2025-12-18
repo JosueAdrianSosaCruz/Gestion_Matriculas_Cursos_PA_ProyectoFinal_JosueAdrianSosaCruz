@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Curso.h"
+#include "Menu.h"
 using namespace std;
 
 const int MAX_CUR = 10;
@@ -46,8 +47,9 @@ void menuCurso() {
         cout << "\n--- MENÚ DE CURSO ---\n";
         cout << "1. Asignar profesor\n";
         cout << "2. Cambiar profesor\n";
-        cout << "3. Eliminar curso\n";
-        cout << "4. Volver\n";
+        cout << "3. Ver información del profesor\n";
+        cout << "4. Eliminar curso\n";
+        cout << "5. Volver\n";
         cout << "Opción: ";
         cin >> opcion;
 
@@ -62,7 +64,10 @@ void menuCurso() {
         case 2:
             cursos[c].cambiarProfesor();
             break;
-        case 3:
+		case 3:
+    		cursos[c].mostrarProfesor();
+    		break;
+        case 4:
             cursos[c] = Curso();
             cout << "Curso eliminado completamente.\n";
             break;
@@ -71,7 +76,7 @@ void menuCurso() {
     		break;
         }
 
-    } while (opcion != 4);
+    } while (opcion != 5);
 }
 
 // ===== SUBMENÚ ESTUDIANTES =====
@@ -113,11 +118,13 @@ void menuNotas() {
     do {
         cout << "\n--- MENÚ DE NOTAS ---\n";
         cout << "1. Ingresar notas\n";
-        cout << "2. Ordenar por nombre\n";
+        cout << "2. Editar nota\n";
         cout << "3. Ordenar por nota\n";
-        cout << "4. Promediar curso\n";
-        cout << "5. Reiniciar notas\n";
-        cout << "6. Volver\n";
+        cout << "4. Editar nota\n";
+        cout << "5. Promediar curso\n";
+        cout << "6. Promedio por evaluación\n";
+        cout << "7. Reiniciar notas\n";
+        cout << "8. Volver\n";
         cout << "Opción: ";
         cin >> opcion;
 
@@ -136,9 +143,15 @@ void menuNotas() {
             cursos[c].ordenarPorNota();
             break;
         case 4:
+    		cursos[c].editarNota();
+    		break;
+        case 5:
             cout << "Promedio: " << cursos[c].promedio() << endl;
             break;
-        case 5:
+        case 6:
+    		cursos[c].mostrarPromediosEvaluaciones();
+    		break;
+        case 7:
             cursos[c].reiniciarNotas();
             break;
         default:
@@ -146,7 +159,7 @@ void menuNotas() {
     		break;
         }
 
-    } while (opcion != 6);
+    } while (opcion != 8);
 }
 void menuReportes() {
     int opcion;
@@ -188,6 +201,7 @@ int main() {
     int opcion;
 
     do {
+    	menuPrincipalColores();
         cout << "\n=== SISTEMA DE MATRÍCULA ===\n";
         cout << "1. Crear curso\n";
         cout << "2. Mostrar cursos\n";

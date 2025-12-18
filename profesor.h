@@ -1,15 +1,17 @@
 #ifndef PROFESOR_H
 #define PROFESOR_H
 
+#include "Persona.h"
 #include <string>
 using namespace std;
 
-class Profesor {
+class Profesor : public Persona {
 public:
-    string nombre;
-    bool asignado;
+    string especialidad;
+    int codigo;
 
-    Profesor();
+    Profesor();             
+    void mostrarInfo() override;  
 };
 
 #endif
