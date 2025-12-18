@@ -7,29 +7,13 @@
 using namespace std;
 
 class Profesor : public Persona {
-private:
-    bool activo;
-
 public:
     string especialidad;
     int codigo;
 
     Profesor() {
-        nombre = "";
         especialidad = "";
         codigo = 0;
-        activo = false;
-    }
-
-    bool estaActivo() {
-        return activo;
-    }
-
-    void activar() {
-        activo = true;
-    }
-
-    void desactivar() {
         activo = false;
     }
 
@@ -40,4 +24,5 @@ public:
         cout << "Código: " << codigo << endl;
     }
 };
+
 #endif

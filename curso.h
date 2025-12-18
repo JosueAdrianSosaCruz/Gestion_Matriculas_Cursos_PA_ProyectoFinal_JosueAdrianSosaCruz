@@ -22,7 +22,6 @@ public:
     void eliminarEstudiante();
     void ingresarNotas();
     void mostrarEstudiantes();
-    void ordenarPorNombre();
     void ordenarPorNota();
     float promedio();
     void reiniciarNotas();
@@ -38,6 +37,7 @@ public:
 	void editarNota();
 	float promedioEvaluacion(int indice);
 	void mostrarPromediosEvaluaciones();
+	void guardarEstudiantesEnArchivo();
 };
 
 #endif

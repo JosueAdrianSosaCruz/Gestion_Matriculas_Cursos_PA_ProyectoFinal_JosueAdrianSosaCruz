@@ -1,0 +1,5 @@
+Curso: Mate
+Profesor: Sos
+
+--- LISTA DE ESTUDIANTES ---
+1. JOSU - Promedio: 0

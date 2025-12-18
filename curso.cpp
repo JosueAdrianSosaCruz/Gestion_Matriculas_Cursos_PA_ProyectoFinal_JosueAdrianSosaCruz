@@ -1,6 +1,7 @@
 #include "curso.h"
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 
 Curso::Curso() {
@@ -62,21 +63,17 @@ void Curso::matricularEstudiante() {
         return;
     }
 
-    if (totalEstudiantes >= MAX_EST) {
-        cout << "Curso lleno.\n";
-        return;
-    }
-
-    cout << "Nombre del estudiante: ";
-    cin.ignore();
-    string nom;
-	getline(cin, nom);
-	estudiantes[totalEstudiantes].setNombre(nom);
-    totalEstudiantes++;
-
-    cout << "Estudiante matriculado.\n";
-}
-
+	if (totalEstudiantes >= MAX_EST) { 
+		cout << "Curso lleno.\n";
+ 		return;
+ 	}
+ 	cout << "Nombre del estudiante: ";
+ 	cin.ignore();
+ 	string nom; getline(cin, nom);
+ 	estudiantes[totalEstudiantes].setNombre(nom);
+ 	totalEstudiantes++;
+ 	cout << "Estudiante matriculado.\n";
+ }
 void Curso::eliminarEstudiante() {
     if (totalEstudiantes == 0) {
         cout << "No hay estudiantes para eliminar.\n";
@@ -148,19 +145,6 @@ void Curso::mostrarEstudiantes() {
     }
 }
 
-
-void Curso::ordenarPorNombre() {
-    for (int i = 0; i < totalEstudiantes - 1; i++) {
-        for (int j = i + 1; j < totalEstudiantes; j++) {
-            if (estudiantes[i].getNombre() > estudiantes[j].getNombre()) {
-                swap(estudiantes[i], estudiantes[j]);
-            }
-        }
-    }
-
-    cout << "Estudiantes ordenados por nombre.\n";
-}
-
 void Curso::ordenarPorNota() {
     for (int i = 0; i < totalEstudiantes - 1; i++) {
         for (int j = i + 1; j < totalEstudiantes; j++) {
@@ -208,7 +192,6 @@ void Curso::eliminarCurso() {
     totalEstudiantes = 0;
     profesor = Profesor();
     activo = false;
-    cout << "Curso eliminado completamente.\n";
 }
 
 int Curso::buscarEstudiante(string nombre) {
@@ -291,8 +274,8 @@ void Curso::resumenCurso() {
 
 void Curso::cambiarNombreCurso() {
     cout << "Nuevo nombre del curso: ";
-    cin.ignore();
     getline(cin, nombreCurso);
+
     cout << "Nombre del curso actualizado.\n";
 }
 
@@ -372,4 +355,41 @@ void Curso::mostrarProfesor() {
 
     cout << "Cantidad de estudiantes: " << totalEstudiantes << endl;
     cout << "Promedio del curso: " << promedio() << endl;
+}
+void Curso::guardarEstudiantesEnArchivo() {
+    if (totalEstudiantes == 0) {
+        cout << "No hay estudiantes para guardar.\n";
+        return;
+    }
+
+    ofstream archivo;
+    archivo.open(nombreCurso + "estudiantes.txt", ios::out);
+
+    if (!archivo) {
+        cout << "Error al crear el archivo.\n";
+        return;
+    }
+
+    archivo << "Curso: " << nombreCurso << endl;
+
+    if (profesor.estaActivo()) {
+        archivo << "Profesor: " << profesor.getNombre() << endl;
+    } else {
+        archivo << "Profesor: (sin asignar)\n";
+    }
+
+    archivo << "\n--- LISTA DE ESTUDIANTES ---\n";
+
+    for (int i = 0; i < totalEstudiantes; i++) {
+        archivo << i + 1 << ". "
+                << estudiantes[i].getNombre()
+                << " - Promedio: "
+                << estudiantes[i].promedio()
+                << endl;
+    }
+
+    archivo.close();
+    archivo.clear();
+
+    cout << "Estudiantes guardados correctamente en el archivo.\n";
 }

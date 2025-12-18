@@ -35,5 +35,8 @@ using namespace std;
 
 void menuPrincipalColores();
 void menuCursoColor();
+void menuEstudiantesColor();
+void menuNotasColor();
+void menuReportesColor();
 
 #endif
